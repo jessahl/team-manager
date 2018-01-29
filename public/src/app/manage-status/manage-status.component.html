@@ -1,0 +1,36 @@
+<h2>Player Status - Game {{game}}</h2>
+<h4>
+  <a (click)="game1()">Game 1</a> |
+  <a (click)="game2()">Game 2</a> |
+  <a (click)="game3()">Game 3</a>
+</h4>
+<p></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player Name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of allPlayers">
+      <td>{{p.name}}</td>
+      <td *ngIf="p.games[this.gameKey]=='undecided'">
+        <button (click)="playing(p)">Playing</button>
+        <button (click)="notPlaying(p)">Not Playing</button>
+        <button (click)="undecided(p)" class='trueu'>Undecided</button>
+      </td>
+      <td *ngIf="p.games[this.gameKey]=='playing'">
+        <button (click)="playing(p)" class='truep'>Playing</button>
+        <button (click)="notPlaying(p)">Not Playing</button>
+        <button (click)="undecided(p)">Undecided</button>
+      </td>
+      <td *ngIf="p.games[this.gameKey]=='not playing'">
+        <button (click)="playing(p)">Playing</button>
+        <button (click)="notPlaying(p)"  class='truen'>Not Playing</button>
+        <button (click)="undecided(p)">Undecided</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

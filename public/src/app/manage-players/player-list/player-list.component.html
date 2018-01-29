@@ -1,0 +1,19 @@
+<h1>Add a Player</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player Name</th>
+      <th>Prefered Position</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let p of allPlayers">
+      <td>{{p.name}}</td>
+      <td>{{p.position}}</td>
+      <td><button class="center" (click)="deletePlayer(p)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
